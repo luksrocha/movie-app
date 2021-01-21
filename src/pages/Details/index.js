@@ -7,7 +7,7 @@ export default function Details({ route, navigation }) {
   const [details, setDetails] = useState({});
   const { id } = route.params;
 
-  const movieCollection = ''
+  const movieCollection = global.database.collections.get('movies');
 
   const saveData = async () => {
     const newMovie = await movieCollection.create(movie => {
@@ -65,7 +65,7 @@ export default function Details({ route, navigation }) {
                 <Text style={{fontSize:17, color:'#FFF'}}>Estrela</Text>
               </View>
               <View>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={saveData()}>
                   <Text style={{color:'#FFF'}}>Favorito</Text>
                 </TouchableOpacity>
               </View>

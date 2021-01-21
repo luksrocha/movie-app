@@ -22,4 +22,6 @@ const database = new Database({
   actionsEnabled: true
 });
 
+global.database = database;
+
 AppRegistry.registerComponent(appName, () => App);
