@@ -7,6 +7,19 @@ export default function Details({ route, navigation }) {
   const [details, setDetails] = useState({});
   const { id } = route.params;
 
+  const movieCollection = ''
+
+  const saveData = async () => {
+    const newMovie = await movieCollection.create(movie => {
+      movie.title = 'Teste',
+      movie.poster_path = 'path teste',
+      movie.runtime = 1,
+      movie.vote_average = 2
+    })
+
+    console.log(newMovie);
+  }
+
   navigation.setOptions({
     headerTitle: !details ? ' ' : details.title,
     headerTitleAlign: 'center',
